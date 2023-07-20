@@ -1,36 +1,42 @@
 class CfgPatches {
-	class mainmenu {
+	class dda_mainmenu {
 		units[] = {};
 		weapons[] = {};
 		requiredVersion = 1;
-		requiredAddons[] = {"A3_Map_Altis","A3_Map_Stratis","A3_Map_Stratis_Scenes", "A3_Map_Altis_Scenes", "A3_Map_Enoch"};
-	
+		requiredAddons[] = {
+			"A3_Map_Altis",
+			"A3_Map_Stratis",
+			"A3_Map_Stratis_Scenes",
+			"A3_Map_Altis_Scenes",
+			"A3_Map_Enoch"
+		};
 	};
 };
+
 class Extended_DisplayLoad_EventHandlers
 {
 	class RscDisplayMain
 	{
-		mac_intro="call compileScript ['mainmenu\XEH_mainDisplayLoad.sqf', true]";
+		mac_intro="call compileScript ['dda_mainmenu\XEH_mainDisplayLoad.sqf', true]";
 	};
 };
 
 class CfgWorlds {
 	class CAWorld;	
 	class Altis : CAWorld {
-		cutscenes[] = {"mymainmenu"};
+		cutscenes[] = {"dda_cutscene_mainmenu"};
 	};
 	
 	class Stratis : CAWorld {
-		cutscenes[] = {"mymainmenu"};
+		cutscenes[] = {"dda_cutscene_mainmenu"};
 	};
 
 	class Enoch : CAWorld {
-		cutscenes[] = {"mymainmenu"};
+		cutscenes[] = {"dda_cutscene_mainmenu"};
 	};
 
 	class VR : CAWorld {
-		cutscenes[] = {"mymainmenu"};
+		cutscenes[] = {"dda_cutscene_mainmenu"};
 	};
 
 	initWorld = "Stratis";
@@ -41,9 +47,9 @@ class CfgMissions
 {
 	class Cutscenes
 	{
-		class mymainmenu 
+		class dda_cutscene_mainmenu 
 		{
-			directory = "mainmenu\scenes\mainmenu.stratis"; 
+			directory = "dda_mainmenu\scenes\mainmenu.stratis"; 
 		};
 	};
 };
